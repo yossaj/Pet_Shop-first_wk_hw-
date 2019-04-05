@@ -24,5 +24,9 @@ def stock_count(shop)
 end
 
 def pet_by_breed(shop, breed)
-  
+  num_breed = O
+  for breed in shop
+    if breed = shop[:pets]
+  end
+
 end
