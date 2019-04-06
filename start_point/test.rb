@@ -78,12 +78,12 @@
 # puts customer_cash(@customers)
 
  #
- for x in @pet_shop[:pets]
-   pet = Hash.new
-   if x[:name] == "Arthur"
-     puts x.clear
-   end
- end
+ # for x in @pet_shop[:pets]
+ #   pet = Hash.new
+ #   if x[:name] == "Arthur"
+ #     puts x.clear
+ #   end
+ # end
 
 
 # puts @customers[1][:cash]
@@ -104,3 +104,26 @@
 # val = names.index("Arthur")
 # puts
 # puts names[val]
+
+
+amount = 0
+sold_pet = Hash.new
+for pet in @pet_shop[:pets]
+  if pet[:name] == "Arthur"
+    amount = amount + pet[:price]
+    @customers[0][:pets] << pet
+  end
+end
+
+puts amount
+puts
+puts @customers[0][:pets]
+puts
+@customers[0][:cash] -= amount
+puts @customers[0][:cash]
+puts
+puts @pet_shop[:admin][:pets_sold] += 1
+# customer[:pets].push(sold_pet)
+# shop[:admin][:pets_sold] += amount
+# customer[:cash] -= amount
+# shop[:admin][:pets_sold] += 1
