@@ -106,23 +106,26 @@
 # puts names[val]
 
 
-amount = 0
-sold_pet = Hash.new
+# amount = 0
+# sold_pet = Hash.new
 for pet in @pet_shop[:pets]
   if pet[:name] == "Arthur"
-    amount = amount + pet[:price]
+    # amount = amount + pet[:price]
     @customers[0][:pets] << pet
   end
 end
 
-puts amount
-puts
 puts @customers[0][:pets]
-puts
-@customers[0][:cash] -= amount
-puts @customers[0][:cash]
-puts
-puts @pet_shop[:admin][:pets_sold] += 1
+
+# puts amount
+# puts
+# puts @customers[0][:pets]
+# puts
+# @customers[0][:cash] -= amount
+# puts @customers[0][:cash]
+
+# puts
+# puts @pet_shop[:admin][:pets_sold] += 1
 # customer[:pets].push(sold_pet)
 # shop[:admin][:pets_sold] += amount
 # customer[:cash] -= amount

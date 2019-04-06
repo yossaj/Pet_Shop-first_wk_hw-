@@ -74,25 +74,24 @@ def add_pet_to_customer(customer, pet)
 end
 
 
-def customer_can_afford_pet(custo, shop)
-  arr = []
-  for pet in @pet_shop[:pets]
-     arr.push(pet[:price])
-  end
-  return arr.min < custo[:cash]
+# def customer_can_afford_pet(custo, shop)
+#   arr = []
+#   for pet in @pet_shop[:pets]
+#      arr.push(pet[:price])
+#   end
+#   return arr.min < custo[:cash]
+# end
+
+def customer_can_afford_pet(custo, new_pet)
+ custo[:cash] > new_pet[:price]
 end
 
 
 def sell_pet_to_customer(shop, pet_name, customer)
-amount = 0
-new_pet = []
-  for pet in shop[:pets]
-    if pet[:name] == pet_name
-      customer[:pets].push(pet)
-      amount += pet[:price]
-      customer[:cash] -= amount
-      shop[:admin][:total_cash] += amount
-      shop[:admin][:pets_sold] += 1
-    end
+  if pet_name != nil && customer[:cash] > pet_name[:price]
+    customer[:pets] << pet_name
+    shop[:admin][:pets_sold] += 1
+    customer[:cash] -= pet_name[:price]
+    shop[:admin][:total_cash] += pet_name[:price]
   end
 end
